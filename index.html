@@ -352,6 +352,42 @@
       border: 1px solid rgba(255,255,255,0.05);
     }
 
+    .strain-image.has-photo {
+      padding: 0;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+
+    .strain-image-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .strain-image-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+      z-index: 2;
+    }
+
+    .mini-product-art {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mini-product-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .mini-product-art {
       width: 52px;
       height: 52px;
@@ -1414,21 +1450,21 @@
               </div>
 
               <div class="mini-product">
-                <div class="mini-product-art"></div>
+                <div class="mini-product-art"><img src="sunset-gelato.jpeg" alt="Sunset Gelato flower image" onerror="this.style.display='none'; this.parentElement.textContent='SG';"></div>
                 <div class="flex-grow-1">
                   <div class="fw-bold">Sunset Gelato</div>
                   <div class="small-note">Hybrid • 3.5g from $20</div>
                 </div>
               </div>
               <div class="mini-product">
-                <div class="mini-product-art"></div>
+                <div class="mini-product-art"><img src="midnight-kush.jpeg" alt="Midnight Kush flower image" onerror="this.style.display='none'; this.parentElement.textContent='MK';"></div>
                 <div class="flex-grow-1">
                   <div class="fw-bold">Midnight Kush</div>
                   <div class="small-note">Indica • 7g from $35</div>
                 </div>
               </div>
               <div class="mini-product mb-0">
-                <div class="mini-product-art"></div>
+                <div class="mini-product-art"><img src="lavender-haze.jpeg" alt="Lavender Haze flower image" onerror="this.style.display='none'; this.parentElement.textContent='LH';"></div>
                 <div class="flex-grow-1">
                   <div class="fw-bold">Lavender Haze</div>
                   <div class="small-note">Hybrid • 1oz for $100</div>
@@ -1450,6 +1486,7 @@
           <p class="brand-kicker mb-2">Featured Menu</p>
           <h2 class="section-title">Our curated flower collection</h2>
           <p class="section-copy">Explore a menu shaped with the same care as the in-store experience. Each selection is presented with a boutique tone, clear weight options, and a clean path toward your preferred pickup or delivery experience.</p>
+          
         </div>
 
         <div class="filter-card reveal">
@@ -1484,11 +1521,7 @@
               </div>
               <p class="small-note">Review your selections before sending an inquiry summary.</p>
 
-              <div class="cart-summary-box mb-3">
-                <div class="small-note mb-1">House Standard</div>
-                <div class="fw-bold">Verdé House Signature Service</div>
-                <div class="small-note mt-2">Boutique presentation • premium flower • concierge-inspired experience</div>
-              </div>
+              
 
               <div id="cartItems" class="mb-3"></div>
 
@@ -1798,7 +1831,7 @@
         <div class="modal-body">
           <p class="small-note">This summary is for informational review only. It does not place or confirm a transaction.</p>
           <div id="summaryItems" class="mb-3"></div>
-          <div class="qr-placeholder mb-3">QR / pickup token placeholder for staff-side reference only.</div>
+          <div class="qr-placeholder mb-3">QR CODE</div>
           <div class="d-flex justify-content-between mb-3">
             <span class="muted">Estimated total</span>
             <strong id="summaryTotal">$0.00</strong>
@@ -1823,7 +1856,8 @@
         notes: 'Creamy citrus-forward profile with a balanced boutique feel.',
         shelf: 'Top Shelf',
         thc: '24% THC',
-        art: 'Golden, creamy, sunset profile'
+        art: 'Golden, creamy, sunset profile',
+        image: 'sunset-gelato.jpeg'
       },
       {
         id: 2,
@@ -1832,7 +1866,8 @@
         notes: 'Bright pine notes and an energetic daytime personality.',
         shelf: 'Daytime Pick',
         thc: '21% THC',
-        art: 'Fresh pine boutique selection'
+        art: 'Fresh pine boutique selection',
+        image: 'pine-reserve.jpeg'
       },
       {
         id: 3,
@@ -1841,7 +1876,8 @@
         notes: 'Deep earthy aroma with a smooth nighttime vibe.',
         shelf: 'Evening Drop',
         thc: '27% THC',
-        art: 'Dark velvet nighttime flower'
+        art: 'Dark velvet nighttime flower',
+        image: 'midnight-kush.jpeg'
       },
       {
         id: 4,
@@ -1850,7 +1886,8 @@
         notes: 'Soft floral notes with a mellow premium presentation.',
         shelf: 'House Favorite',
         thc: '22% THC',
-        art: 'Floral haze curated release'
+        art: 'Floral haze curated release',
+        image: 'lavender-haze.jpeg'
       },
       {
         id: 5,
@@ -1859,7 +1896,8 @@
         notes: 'Bright citrus notes and a polished daytime uplift.',
         shelf: 'Featured',
         thc: '23% THC',
-        art: 'Citrus reserve highlight'
+        art: 'Citrus reserve highlight',
+        image: 'golden-citrus.jpeg'
       },
       {
         id: 6,
@@ -1868,7 +1906,8 @@
         notes: 'Rich herbal depth with a luxe shelf presence.',
         shelf: 'Reserve',
         thc: '28% THC',
-        art: 'Deep green reserve flower'
+        art: 'Deep green reserve flower',
+        image: 'forest-velvet.jpeg'
       }
     ];
 
@@ -1921,6 +1960,30 @@
       return `$${Number(value).toFixed(2)}`;
     }
 
+    function renderStrainImage(item) {
+      if (!item.image) {
+        return `
+          <div>
+            <span class="shelf-badge">${item.shelf}</span>
+            <div class="mt-2">${item.art}</div>
+          </div>
+        `;
+      }
+
+      return `
+        <img
+          class="strain-image-photo"
+          src="${item.image}"
+          alt="${item.name} flower image"
+          onerror="this.remove(); this.parentElement.classList.remove('has-photo'); this.parentElement.innerHTML='<div><span class=&quot;shelf-badge&quot;>${item.shelf}</span><div class=&quot;mt-2&quot;>${item.art}</div></div>';"
+        />
+        <div class="strain-image-overlay">
+          <span class="shelf-badge">${item.shelf}</span>
+          <div class="mt-2">${item.art}</div>
+        </div>
+      `;
+    }
+
     function getFilteredStrains() {
       return strains.filter((item) => {
         const matchesFilter = activeFilter === 'all' || item.type === activeFilter;
@@ -1944,11 +2007,8 @@
       strainGrid.innerHTML = filteredStrains.map((item) => `
         <div class="col-12 col-md-6 reveal">
           <div class="strain-card scanline">
-            <div class="strain-image">
-              <div>
-                <span class="shelf-badge">${item.shelf}</span>
-                <div class="mt-2">${item.art}</div>
-              </div>
+            <div class="strain-image ${item.image ? 'has-photo' : ''}">
+              ${renderStrainImage(item)}
             </div>
 
             <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
@@ -1962,8 +2022,8 @@
             </div>
 
             <p class="muted my-3">${item.notes}</p>
-            <div class="small-note mb-2">Starting price tier</div>
-            <div class="price-line mb-3">1g from $10</div>
+            
+            <div class="price-line mb-3"></div>
 
             <label class="small-note mb-2 d-block" for="option-${item.id}">Choose quantity</label>
             <select class="form-select mb-3" id="option-${item.id}">
@@ -2187,6 +2247,7 @@
       console.assert(document.getElementById('copySummaryBtn'), 'Expected copy summary button to exist.');
       console.assert(document.getElementById('flowerViewerPopup'), 'Expected flower viewer popup to exist.');
       console.assert(document.getElementById('goToFlowerViewerBtn'), 'Expected flower viewer popup CTA to exist.');
+      console.assert(strains.every((item) => typeof item.image === 'string' && item.image.endsWith('.jpeg')), 'Expected every strain to have a jpeg image filename.');
 
       const sampleCart = [
         { price: 10, qty: 2 },

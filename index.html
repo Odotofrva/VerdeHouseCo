@@ -853,63 +853,7 @@
       transform: translateY(0);
     }
 
-    
-    .floating-cart-panel {
-      position: fixed;
-      right: 16px;
-      bottom: 76px;
-      z-index: 1039;
-      width: min(92vw, 360px);
-      background: rgba(10, 15, 11, 0.96);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 1.25rem;
-      box-shadow: 0 18px 48px rgba(0,0,0,0.34);
-      padding: 1rem;
-      display: none;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .floating-cart-panel.is-visible {
-      display: block;
-      animation: fadeInUp 0.25s ease;
-    }
-
-    .floating-cart-items {
-      max-height: 220px;
-      overflow: auto;
-      margin: 0.75rem 0;
-      padding-right: 0.25rem;
-    }
-
-    .floating-cart-item {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .checkout-form-grid {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .checkout-note {
-      border-radius: 1rem;
-      padding: 0.9rem 1rem;
-      border: 1px dashed rgba(250,204,21,0.24);
-      background: rgba(250,204,21,0.06);
-      color: var(--muted);
-    }
-
-    @media (max-width: 575.98px) {
-      .floating-cart-panel {
-        left: 16px;
-        right: 16px;
-        width: auto;
-        bottom: 82px;
-      }
-    }
-
-.floating-shop-btn {
+    .floating-shop-btn {
       position: fixed;
       right: 16px;
       bottom: 16px;
@@ -1362,7 +1306,7 @@
     }
   </style>
 </head>
-<body>
+<body class="splash-active">
   <div id="splashScreen" class="splash-screen">
     <video class="splash-video" autoplay muted loop playsinline poster="">
       <source src="https://cdn.coverr.co/videos/coverr-cannabis-leaf-close-up-1565584784864?download=1080p" type="video/mp4">
@@ -1373,7 +1317,7 @@
       <h1 class="splash-title">Verdé House</h1>
       <p class="splash-copy">Enter a more elevated cannabis experience where boutique flower, warm hospitality, and refined design come together in a space made for discovery.</p>
       <div class="splash-actions">
-        <button id="enterExperienceBtn" class="btn btn-brand" type="button">Enter Now</button>
+        <button id="enterExperienceBtn" class="btn btn-brand">Enter Experience</button>
         <a href="#menu" class="btn btn-outline-brand" id="skipToMenuBtn">Jump to Menu</a>
       </div>
     </div>
@@ -1562,36 +1506,12 @@
             </div>
           </div>
         </div>
-
         <div class="row g-4">
-          <div class="col-12 col-xl-8">
+          <div class="col-12">
             <div class="row g-3" id="strainGrid"></div>
             <div id="noResults" class="no-results mt-3">No strains matched your search. Try a different keyword or filter.</div>
           </div>
-
-          <div class="col-12 col-xl-4">
-            <div class="cart-card cart-sticky p-3 scanline reveal">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <h3 class="h5 fw-bold mb-0">Your Cart</h3>
-                <span class="small-note" id="cartCount">0 items</span>
-              </div>
-              <p class="small-note">Review your selections, then continue to checkout.</p>
-
-              
-
-              <div id="cartItems" class="mb-3"></div>
-
-              <div class="info-divider"></div>
-
-              <div class="d-flex justify-content-between mb-2">
-                <span class="muted">Estimated total</span>
-                <strong id="cartTotal">$0.00</strong>
-              </div>
-              <button class="btn btn-brand w-100" id="requestSummaryBtn" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div>      </div>
     </section>
 
     <section id="about" class="section-space reveal">
@@ -1751,6 +1671,53 @@
                 </div>
               </div>
 
+              <div class="stream-card mt-3">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                  <div>
+                    <div class="brand-kicker mb-1">Community Highlights</div>
+                    <h4 class="h5 fw-bold mb-0">Top 5 users</h4>
+                  </div>
+                  <span class="shelf-badge">Placeholder Rankings</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="stream-meta-item h-100">
+                      <div class="small-note">#1 Top User</div>
+                      <div class="fw-bold mt-1">User One</div>
+                      <div class="small-note mt-2">Most active in house sessions</div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="stream-meta-item h-100">
+                      <div class="small-note">#2 Top User</div>
+                      <div class="fw-bold mt-1">User Two</div>
+                      <div class="small-note mt-2">Strong community engagement</div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="stream-meta-item h-100">
+                      <div class="small-note">#3 Top User</div>
+                      <div class="fw-bold mt-1">User Three</div>
+                      <div class="small-note mt-2">Regular cypher supporter</div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-6">
+                    <div class="stream-meta-item h-100">
+                      <div class="small-note">#4 Top User</div>
+                      <div class="fw-bold mt-1">User Four</div>
+                      <div class="small-note mt-2">Consistent house interaction</div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-6">
+                    <div class="stream-meta-item h-100">
+                      <div class="small-note">#5 Top User</div>
+                      <div class="fw-bold mt-1">User Five</div>
+                      <div class="small-note mt-2">Featured community presence</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="stream-meta-grid">
                 <div class="stream-meta-item">
                   <div class="small-note">House Schedule</div>
@@ -1875,20 +1842,35 @@
     </div>
   </footer>
 
-  <div id="floatingCartPanel" class="floating-cart-panel">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <strong>Your selections</strong>
-      <button id="closeFloatingCartBtn" type="button" class="btn btn-sm btn-outline-light rounded-pill">Close</button>
-    </div>
-    <div id="floatingCartItems" class="floating-cart-items"></div>
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <span class="small-note">Estimated total</span>
-      <strong id="floatingCartTotal">$0.00</strong>
-    </div>
-    <button id="openCheckoutBtn" type="button" class="btn btn-brand w-100" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
-  </div>
+  <button id="floatingShopBtn" class="floating-shop-btn" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" style="display:none;">
+    Cart <span id="floatingCartCount">0</span>
+  </button>
 
-  <button id="floatingShopBtn" class="floating-shop-btn" type="button">Cart <span id="floatingCartCount">0</span></button>
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-white rounded-4">
+        <div class="modal-header border-secondary-subtle">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small-note">Review the products in your cart, then continue to checkout.</p>
+          <div id="cartItemsModal" class="mb-3"></div>
+          <div class="cart-summary-box">
+            <div class="d-flex justify-content-between">
+              <span class="muted">Estimated total</span>
+              <strong id="cartTotalModal">$0.00</strong>
+            </div>
+          </div>
+          <div class="d-grid gap-2 mt-3">
+            <button type="button" class="btn btn-brand" id="openCheckoutBtn" data-bs-target="#checkoutModal" data-bs-toggle="modal">Proceed to Checkout</button>
+            <button type="button" class="btn btn-outline-brand" id="copySummaryBtn">Copy Order Summary</button>
+          </div>
+          <div id="summaryActionMessage" class="small-note mt-3" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -1898,45 +1880,34 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p class="small-note">Review your selections and enter your details below. This creates an email inquiry and does not confirm a transaction.</p>
-          <div class="row g-4">
-            <div class="col-12 col-lg-6">
-              <div class="checkout-note mb-3">
-                Your requested items will be included in an email draft addressed to odot.rva@proton.me.
-              </div>
-              <div id="checkoutSummaryItems" class="mb-3"></div>
-              <div class="d-flex justify-content-between">
-                <span class="muted">Estimated total</span>
-                <strong id="checkoutSummaryTotal">$0.00</strong>
-              </div>
+          <p class="small-note">Enter your information below. When you submit, your email app will open with the full order details ready to send to Verdé House.</p>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="checkoutUsername" class="small-note d-block mb-2">Username</label>
+              <input id="checkoutUsername" class="form-control" type="text" placeholder="Your username">
             </div>
-            <div class="col-12 col-lg-6">
-              <form id="checkoutForm" class="checkout-form-grid">
-                <div>
-                  <label class="small-note d-block mb-2" for="checkoutFirstName">First Name</label>
-                  <input id="checkoutFirstName" class="form-control" type="text" required>
-                </div>
-                <div>
-                  <label class="small-note d-block mb-2" for="checkoutLastName">Last Name</label>
-                  <input id="checkoutLastName" class="form-control" type="text" required>
-                </div>
-                <div>
-                  <label class="small-note d-block mb-2" for="checkoutEmail">Email</label>
-                  <input id="checkoutEmail" class="form-control" type="email" required>
-                </div>
-                <div>
-                  <label class="small-note d-block mb-2" for="checkoutPhone">Phone Number</label>
-                  <input id="checkoutPhone" class="form-control" type="tel" required>
-                </div>
-                <button type="submit" class="btn btn-brand w-100">Send Checkout Inquiry</button>
-                <div id="checkoutActionMessage" class="small-note" style="display:none;"></div>
-              </form>
+            <div class="col-12 col-md-6">
+              <label for="checkoutEmail" class="small-note d-block mb-2">Email</label>
+              <input id="checkoutEmail" class="form-control" type="email" placeholder="you@example.com">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="checkoutPhone" class="small-note d-block mb-2">Phone</label>
+              <input id="checkoutPhone" class="form-control" type="tel" placeholder="(555) 555-5555">
             </div>
           </div>
+          <div class="info-divider"></div>
+          <div id="summaryItems" class="mb-3"></div>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="muted">Estimated total</span>
+            <strong id="summaryTotal">$0.00</strong>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-brand" id="submitCheckoutBtn">Submit Order by Email</button>
+            <button type="button" class="btn btn-outline-brand" data-bs-target="#cartModal" data-bs-toggle="modal">Back to Cart</button>
+          </div>
+          <div id="checkoutActionMessage" class="small-note mt-3" style="display:none;"></div>
         </div>
       </div>
-    </div>
-  </div>
     </div>
   </div>
 
@@ -2033,24 +2004,20 @@
     const topStrip = document.getElementById('topStrip');
     const mainNav = document.getElementById('mainNav');
     const strainGrid = document.getElementById('strainGrid');
-    const cartItems = document.getElementById('cartItems');
-    const cartCount = document.getElementById('cartCount');
-    const cartTotal = document.getElementById('cartTotal');
-    const checkoutSummaryItems = document.getElementById('checkoutSummaryItems');
-    const checkoutSummaryTotal = document.getElementById('checkoutSummaryTotal');
-    const checkoutForm = document.getElementById('checkoutForm');
-    const checkoutFirstName = document.getElementById('checkoutFirstName');
-    const checkoutLastName = document.getElementById('checkoutLastName');
+    const cartItemsModal = document.getElementById('cartItemsModal');
+    const summaryItems = document.getElementById('summaryItems');
+    const summaryTotal = document.getElementById('summaryTotal');
+    const cartTotalModal = document.getElementById('cartTotalModal');
+    const copySummaryBtn = document.getElementById('copySummaryBtn');
+    const submitCheckoutBtn = document.getElementById('submitCheckoutBtn');
+    const openCheckoutBtn = document.getElementById('openCheckoutBtn');
+    const summaryActionMessage = document.getElementById('summaryActionMessage');
+    const checkoutActionMessage = document.getElementById('checkoutActionMessage');
+    const checkoutUsername = document.getElementById('checkoutUsername');
     const checkoutEmail = document.getElementById('checkoutEmail');
     const checkoutPhone = document.getElementById('checkoutPhone');
-    const checkoutActionMessage = document.getElementById('checkoutActionMessage');
     const floatingShopBtn = document.getElementById('floatingShopBtn');
     const floatingCartCount = document.getElementById('floatingCartCount');
-    const floatingCartPanel = document.getElementById('floatingCartPanel');
-    const floatingCartItems = document.getElementById('floatingCartItems');
-    const floatingCartTotal = document.getElementById('floatingCartTotal');
-    const closeFloatingCartBtn = document.getElementById('closeFloatingCartBtn');
-    const openCheckoutBtn = document.getElementById('openCheckoutBtn');
     const strainSearch = document.getElementById('strainSearch');
     const filterRow = document.getElementById('filterRow');
     const noResults = document.getElementById('noResults');
@@ -2194,11 +2161,9 @@
 
     function renderCart() {
       if (!cart.length) {
-        cartItems.innerHTML = '<div class="empty-state">No items saved yet.</div>';
-        floatingCartItems.innerHTML = '<div class="empty-state">No items saved yet.</div>';
-        toggleFloatingCart(false);
+        cartItemsModal.innerHTML = '<div class="empty-state">No items saved yet.</div>';
       } else {
-        cartItems.innerHTML = cart.map((item) => `
+        cartItemsModal.innerHTML = cart.map((item) => `
           <div class="cart-list-item">
             <div class="d-flex justify-content-between gap-2">
               <div>
@@ -2217,29 +2182,16 @@
             </div>
           </div>
         `).join('');
-
-        floatingCartItems.innerHTML = cart.map((item) => `
-          <div class="floating-cart-item">
-            <div class="d-flex justify-content-between gap-2">
-              <div>
-                <strong>${item.name}</strong>
-                <div class="small-note">${item.size} • ${item.qty} qty</div>
-              </div>
-              <strong>${formatCurrency(item.price * item.qty)}</strong>
-            </div>
-          </div>
-        `).join('');
-        toggleFloatingCart(true);
       }
 
       const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      cartCount.textContent = `${totalItems} item${totalItems === 1 ? '' : 's'}`;
       floatingCartCount.textContent = totalItems;
-      cartTotal.textContent = formatCurrency(getTotal());
-      floatingCartTotal.textContent = formatCurrency(getTotal());
-      checkoutSummaryTotal.textContent = formatCurrency(getTotal());
+      cartTotalModal.textContent = formatCurrency(getTotal());
+      summaryTotal.textContent = formatCurrency(getTotal());
+      floatingShopBtn.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+      openCheckoutBtn.disabled = totalItems === 0;
 
-      checkoutSummaryItems.innerHTML = cart.length
+      summaryItems.innerHTML = cart.length
         ? cart.map((item) => `<div class="d-flex justify-content-between py-2 border-bottom border-secondary-subtle"><span>${item.name} (${item.size}) × ${item.qty}</span><strong>${formatCurrency(item.price * item.qty)}</strong></div>`).join('')
         : '<div class="small-note">No items saved yet.</div>';
     }
@@ -2251,30 +2203,26 @@
       }, 220);
     }
 
-    function enterMainExperience() {
+    function enterMainExperience(openAgeGate = true) {
       splashScreen.classList.add('fade-out');
-
-      window.setTimeout(() => {
+      setTimeout(() => {
         splashScreen.style.display = 'none';
-        splashScreen.setAttribute('aria-hidden', 'true');
-        nycPopup.style.display = 'none';
-        ageGate.style.display = 'none';
-        body.classList.remove('splash-active');
+        if (openAgeGate) {
+          nycPopup.style.display = 'flex';
+        }
       }, 800);
     }
 
     function showAgeGate() {
       nycPopup.style.display = 'none';
       ageGate.style.display = 'flex';
-      ageGate.setAttribute('aria-hidden', 'false');
     }
 
     function unlockSite() {
       ageGate.style.display = 'none';
-      ageGate.setAttribute('aria-hidden', 'true');
       body.classList.remove('splash-active');
-
-      window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
         flowerViewerPopup.style.display = 'flex';
       }, 450);
     }
@@ -2319,7 +2267,7 @@
       renderStrains();
     }
 
-    function buildSummaryText() {
+    function buildSummaryText(customer = {}) {
       if (!cart.length) {
         return 'No items selected.';
       }
@@ -2329,42 +2277,37 @@
       ));
 
       return [
-        'Verdé House Checkout Inquiry',
+        'Verdé House Order Request',
         '',
+        `Username: ${customer.username || ''}`,
+        `Email: ${customer.email || ''}`,
+        `Phone: ${customer.phone || ''}`,
+        '',
+        'Cart Items:',
         ...lines,
         '',
-        `Estimated total: ${formatCurrency(getTotal())}`
-      ].join('
-');
+        `Estimated total: ${formatCurrency(getTotal())}`,
+        '',
+        'This message was generated from the Verdé House checkout form.'
+      ].join('\n');
     }
 
-    function buildCheckoutMailtoLink(customer) {
-      const subject = encodeURIComponent('Verdé House checkout inquiry');
-      const body = encodeURIComponent(
-        [
-          'Customer Details',
-          `First Name: ${customer.firstName}`,
-          `Last Name: ${customer.lastName}`,
-          `Email: ${customer.email}`,
-          `Phone: ${customer.phone}`,
-          '',
-          buildSummaryText(),
-          '',
-          'This message is an inquiry only and does not confirm a transaction.'
-        ].join('
-')
-      );
+    function buildMailtoLink(customer = {}) {
+      const subject = encodeURIComponent('Verdé House order request');
+      const body = encodeURIComponent(buildSummaryText(customer));
       return `mailto:odot.rva@proton.me?subject=${subject}&body=${body}`;
+    }
+
+    function showSummaryActionMessage(message) {
+      summaryActionMessage.textContent = message;
+      summaryActionMessage.style.display = 'block';
+      summaryActionMessage.classList.add('action-message-success');
     }
 
     function showCheckoutActionMessage(message) {
       checkoutActionMessage.textContent = message;
       checkoutActionMessage.style.display = 'block';
       checkoutActionMessage.classList.add('action-message-success');
-    }
-
-    function toggleFloatingCart(show) {
-      floatingCartPanel.classList.toggle('is-visible', show);
     }
 
     function runTests() {
@@ -2381,14 +2324,12 @@
       console.assert(document.getElementById('budModelViewer'), 'Expected 3D bud viewer to exist.');
       console.assert(document.querySelector('a[href="#cypher"]'), 'Expected cypher nav link to exist.');
       console.assert(document.getElementById('cypherJoinBtn'), 'Expected cypher join button to exist.');
-      console.assert(document.getElementById('checkoutForm'), 'Expected checkout form to exist.');
-      console.assert(document.getElementById('floatingCartPanel'), 'Expected floating cart panel to exist.');
-      console.assert(document.getElementById('openCheckoutBtn'), 'Expected floating checkout button to exist.');
+      console.assert(document.getElementById('submitCheckoutBtn'), 'Expected checkout submit button to exist.');
+      console.assert(document.getElementById('copySummaryBtn'), 'Expected copy summary button to exist.');
+      console.assert(document.getElementById('cartModal'), 'Expected floating cart modal to exist.');
       console.assert(document.getElementById('flowerViewerPopup'), 'Expected flower viewer popup to exist.');
+      console.assert(document.body.innerHTML.includes('Top 5 users'), 'Expected top 5 users placeholder section to exist.');
       console.assert(document.getElementById('goToFlowerViewerBtn'), 'Expected flower viewer popup CTA to exist.');
-      console.assert(document.getElementById('enterExperienceBtn'), 'Expected splash enter button to exist.');
-      console.assert(document.getElementById('nycPopup'), 'Expected NYC popup to exist after splash.');
-      console.assert(typeof enterMainExperience === 'function', 'Expected splash auto-dismiss function to exist.');
       console.assert(strains.every((item) => typeof item.image === 'string' && item.image.endsWith('.jpeg')), 'Expected every strain to have a jpeg image filename.');
 
       const sampleCart = [
@@ -2402,46 +2343,30 @@
       console.assert(sampleSearch.length === 2, 'Expected 2 sativa strains in the catalog.');
     }
 
-    enterExperienceBtn.addEventListener('click', () => enterMainExperience());
+    enterExperienceBtn.addEventListener('click', () => enterMainExperience(true));
 
     skipToMenuBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      enterMainExperience();
-      window.setTimeout(() => {
+      enterMainExperience(true);
+      setTimeout(() => {
         document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
       }, 850);
     });
 
-    confirmNycBtn.addEventListener('click', () => {
-      nycPopup.style.display = 'none';
-    });
+    confirmNycBtn.addEventListener('click', showAgeGate);
 
     exitNycBtn.addEventListener('click', () => {
       window.location.href = 'https://www.google.com';
     });
 
-    enterSiteBtn.addEventListener('click', () => {
-      ageGate.style.display = 'none';
-    });
+    enterSiteBtn.addEventListener('click', unlockSite);
 
     leaveSiteBtn.addEventListener('click', () => {
       window.location.href = 'https://www.google.com';
     });
 
     floatingShopBtn.addEventListener('click', () => {
-      if (!cart.length) {
-        document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      toggleFloatingCart(!floatingCartPanel.classList.contains('is-visible'));
-    });
-
-    closeFloatingCartBtn.addEventListener('click', () => {
-      toggleFloatingCart(false);
-    });
-
-    openCheckoutBtn.addEventListener('click', () => {
-      toggleFloatingCart(false);
+      summaryActionMessage.style.display = 'none';
     });
 
     strainSearch.addEventListener('input', (event) => {
@@ -2460,28 +2385,41 @@
       cypherJoinMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
-    checkoutForm.addEventListener('submit', (event) => {
-      event.preventDefault();
 
+    submitCheckoutBtn.addEventListener('click', () => {
       if (!cart.length) {
-        showCheckoutActionMessage('Add at least one item before checking out.');
+        showCheckoutActionMessage('Add at least one item before submitting checkout.');
         return;
       }
 
       const customer = {
-        firstName: checkoutFirstName.value.trim(),
-        lastName: checkoutLastName.value.trim(),
+        username: checkoutUsername.value.trim(),
         email: checkoutEmail.value.trim(),
-        phone: checkoutPhone.value.trim(),
+        phone: checkoutPhone.value.trim()
       };
 
-      if (!customer.firstName || !customer.lastName || !customer.email || !customer.phone) {
-        showCheckoutActionMessage('Please complete all checkout fields.');
+      if (!customer.username || !customer.email || !customer.phone) {
+        showCheckoutActionMessage('Please complete username, email, and phone before submitting.');
         return;
       }
 
-      window.location.href = buildCheckoutMailtoLink(customer);
-      showCheckoutActionMessage('Your email app should open with the checkout inquiry details.');
+      window.location.href = buildMailtoLink(customer);
+      showCheckoutActionMessage('Your email app should open with the completed order request.');
+    });
+
+    copySummaryBtn.addEventListener('click', async () => {
+      const summaryText = buildSummaryText({
+        username: checkoutUsername.value.trim(),
+        email: checkoutEmail.value.trim(),
+        phone: checkoutPhone.value.trim()
+      });
+
+      try {
+        await navigator.clipboard.writeText(summaryText);
+        showSummaryActionMessage('Inquiry summary copied to clipboard.');
+      } catch (error) {
+        showSummaryActionMessage('Unable to copy automatically. You can still use the email button.');
+      }
     });
 
     goToFlowerViewerBtn.addEventListener('click', () => {
@@ -2494,12 +2432,6 @@
     });
 
     window.addEventListener('scroll', handleScrollState, { passive: true });
-
-    window.setTimeout(() => {
-      if (splashScreen.style.display !== 'none') {
-        enterMainExperience();
-      }
-    }, 3000);
 
     renderStrains();
     renderCart();
